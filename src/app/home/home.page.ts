@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LaunchNavigator, LaunchNavigatorOptions } from '@ionic-native/launch-navigator/ngx';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,14 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  constructor(private launchNavigator: LaunchNavigator) {}
+
+  onPress() {
+    this.launchNavigator.navigate('Toronto, ON')
+  .then(
+    success => console.log('Launched navigator'),
+    error => console.log('Error launching navigator', error)
+  );
+  }
 
 }
